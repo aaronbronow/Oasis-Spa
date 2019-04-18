@@ -1,13 +1,12 @@
 <?php
 
 include "submenu.php";
-
 $a = addslashes($_GET['a']);
 if(isset($a)) {
 
 
 if($a == "clearall") {
-mysql_query('TRUNCATE TABLE logs;');
+mysqli_query('TRUNCATE TABLE logs;');
 alert("All logs cleared.");
 }
 
@@ -25,8 +24,8 @@ echo "		<td colspan=\"2\" width=\"100%\"> <p align=\"right\"> <a href=\"index.ph
 echo "</tr>";
 
 $sql			= "SELECT * FROM logs WHERE id !='0' ORDER BY time DESC";
-$query			= mysql_query($sql);
-while($logs		= mysql_fetch_assoc($query)) {
+$query			= mysqli_query($m_connect,($sql));
+while($logs		= mysqli_fetch_assoc($query)) {
 
 echo "<tr>";
 echo "		<td width=\"70%\"> ".$logs['log']." </td>";

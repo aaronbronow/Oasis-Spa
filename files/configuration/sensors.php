@@ -14,7 +14,7 @@ $id 	= addslashes($_GET['id']);
 }
 
 if($a == "del") {
-mysql_query("DELETE FROM sensors WHERE id='$id' LIMIT 1");
+mysqli_query($m_connect,"DELETE FROM sensors WHERE id='$id' LIMIT 1");
 alert("Sensor deleted.");
 }
 
@@ -22,8 +22,8 @@ alert("Sensor deleted.");
 if($a == "edit") {
 
 $sql				= "SELECT * FROM sensors WHERE id ='$id'"; 
-$query				= mysql_query($sql);
-$sensor				= mysql_fetch_assoc($query);
+$query				= mysqli_query($m_connect,$sql);
+$sensor				= mysqli_fetch_assoc($query);
 
 if(isset($_POST['submit'])) {
 
@@ -34,8 +34,8 @@ $calibration	= addslashes($_POST['calibration']);
 $visible		= addslashes($_POST['visible']);
 
 if($address != $sensor['address']) { 
-$result =mysql_query("SELECT * FROM sensors WHERE address = '$address'");
-if(mysql_num_rows($result) > 0) {
+$result =mysqli_query($m_connect,"SELECT * FROM sensors WHERE address = '$address'");
+if(mysqli_num_rows($m_connect,$result) > 0) {
         Alert("Address already in use."); 
 return;
 }
@@ -44,7 +44,7 @@ return;
 
 
 
-mysql_query("UPDATE sensors SET name='$name', type='$type', address='$address', calibration_value='$calibration', visible='$visible' WHERE id='$id' LIMIT 1");
+mysqli_query($m_connect,"UPDATE sensors SET name='$name', type='$type', address='$address', calibration_value='$calibration', visible='$visible' WHERE id='$id' LIMIT 1");
 alert("Sensor changed.");
 return;
 }
@@ -136,13 +136,13 @@ alert("Address could not be empty.");
 return;
 }
 
-$result =mysql_query("SELECT * FROM sensors WHERE address = '$address'");
-if(mysql_num_rows($result) > 0) {
+$result =mysqli_query($m_connect,"SELECT * FROM sensors WHERE address = '$address'");
+if(mysqli_num_rows($m_connect,$result) > 0) {
         Alert("Address already in use."); 
 return;
 }
 
-mysql_query("INSERT INTO sensors (id,name,type,address,calibration_value,visible) VALUES('','$name','$type','$address','$calibration','$visible')");
+mysqli_query($m_connect,"INSERT INTO sensors (id,name,type,address,calibration_value,visible) VALUES('','$name','$type','$address','$calibration','$visible')");
 alert("Sensor Added.");
 return;
 }
@@ -322,8 +322,8 @@ echo "</tr>";
 
 
 $sql				= "SELECT * FROM sensors WHERE id !='0' ORDER BY id ASC"; 
-$query				= mysql_query($sql);
-while($sensor		= mysql_fetch_assoc($query)) { 
+$query				= mysqli_query($m_connect,$sql);
+while($sensor		= mysqli_fetch_assoc($query)) { 
 
 $edit 	= "<a href=\"index.php?p=CONF.sensors&a=edit&id=".$sensor['id']."\"> <img src=\"images/edit.png\" width=\"15\" height=\"15\"></a>   ";
 $del  	= "<a href=\"index.php?p=CONF.sensors&a=del&id=".$sensor['id']."\"> <img src=\"images/delete.png\" width=\"15\" height=\"15\"></a>   ";

@@ -1,4 +1,4 @@
- <?php
+<?php
  
 /*
  http://stackoverflow.com/questions/12719008/use-shell-exec-to-restart-server
@@ -32,7 +32,7 @@ preg_match("/averages?: ([0-9\.]+),[\s]+([0-9\.]+),[\s]+([0-9\.]+)/",$loadresult
 $uptime = explode(' up ', $loadresult);
 $uptime = explode(',', $uptime[1]);
 $uptime = $uptime[0].', '.$uptime[1];
-$data .= "Server Load Averages $avgs[1], $avgs[2], $avgs[3]\n <br/>";
+$data = "Server Load Averages $avgs[1], $avgs[2], $avgs[3]\n <br/>";
 $data .= "Server Uptime $uptime";
 echo $data;
 
@@ -58,10 +58,3 @@ echo '<br /> <p> <a href="./index.php?p=LOGS.main" target="_parent">Logs</a> </p
 echo '<br /><p align="right">  <a href=\"https://github.com/the-butterfry/Oasis-Spa/wiki\" target=\"_blank\"> <img src="./images/questionmark.png"> </a> </p>';
 
 ?>
-
-
-
-
-
-  
-  

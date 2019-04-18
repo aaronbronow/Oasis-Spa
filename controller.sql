@@ -72,7 +72,7 @@ INSERT INTO `config` (`id`, `version`, `raspberry_type`, `token`, `api`, `set_te
 --
 
 CREATE TABLE IF NOT EXISTS `device_control` (
-`id` int(6) NOT NULL,
+  `id` int(6) NOT NULL,
   `relay_pin` int(6) NOT NULL,
   `relay_state` int(1) NOT NULL,
   `other_relay_pin` int(6) NOT NULL,
@@ -113,7 +113,7 @@ INSERT INTO `iplist` (`id`, `ip`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `login` (
-`id` int(8) NOT NULL,
+  `id` int(20) NOT NULL,
   `userid` int(10) NOT NULL,
   `ip` varchar(32) NOT NULL,
   `time` bigint(15) NOT NULL
@@ -133,7 +133,7 @@ INSERT INTO `login` (`id`, `userid`, `ip`, `time`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `logs` (
-`id` int(6) NOT NULL,
+  `id` int(12) NOT NULL,
   `log` mediumtext NOT NULL,
   `time` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -174,10 +174,11 @@ INSERT INTO `relays` (`id`, `pin`, `name`, `ip`, `mqtt_address`, `apikey`, `tank
 --
 
 CREATE TABLE IF NOT EXISTS `schedule` (
-`id` int(6) NOT NULL,
+  `id` int(11) NOT NULL,
   `pin` int(2) NOT NULL,
   `state` int(1) NOT NULL,
   `time` time NOT NULL,
+  `overrule` int(1) NOT NULL,
   `active` int(1) NOT NULL,
   `remarks` varchar(255) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
@@ -187,8 +188,10 @@ CREATE TABLE IF NOT EXISTS `schedule` (
 --
 
 INSERT INTO `schedule` (`id`, `pin`, `state`, `time`, `active`, `remarks`) VALUES
+(11, 9, 0, '10:42:00', 0, 1, ''),
 (7, 22, 1, '00:00:00', 1, 'Shutoff at night'),
 (8, 22, 1, '06:15:00', 0, 'Warm tub in the morning off');
+(14, 3, 1, '16:00:00', 0, 1, '');
 
 -- --------------------------------------------------------
 
@@ -225,7 +228,7 @@ INSERT INTO `sensors` (`id`, `address`, `ip`, `name`, `type`, `pin`, `calibratio
 --
 
 CREATE TABLE IF NOT EXISTS `temp_control` (
-`id` int(8) NOT NULL,
+  `id` int(8) NOT NULL,
   `sensor_id` int(8) NOT NULL,
   `mark` varchar(1) NOT NULL,
   `value` varchar(5) NOT NULL,
@@ -250,7 +253,7 @@ INSERT INTO `temp_control` (`id`, `sensor_id`, `mark`, `value`, `switch`, `state
 --
 
 CREATE TABLE IF NOT EXISTS `temp_logger` (
-`id` int(10) NOT NULL,
+  `id` int(12) NOT NULL,
   `address` varchar(52) NOT NULL,
   `date_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `value` varchar(6) NOT NULL
@@ -268,11 +271,22 @@ INSERT INTO `temp_logger` (`id`, `address`, `date_time`, `value`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Tabelstructuur voor tabel `test`
+--
+
+CREATE TABLE IF NOT EXISTS `test` (
+  `id` int(2) NOT NULL,
+  `test` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-`id` int(6) NOT NULL,
+  `id` int(10) NOT NULL,
   `username` varchar(52) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -281,7 +295,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `users`
+-- Gegevens worden geëxporteerd voor tabel `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `ip`, `rank`) VALUES

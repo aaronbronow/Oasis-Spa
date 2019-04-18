@@ -1,10 +1,10 @@
-A few API examples:
-In this case my ipadres is: "192.168.11.60" and my API key / token is "Gdw34^%FHYDe".
-In your case this would be different. (if you change the token, there are several undocumented places that it needs to be update.) best leave it alone for now.
+A few API examples: 
+In this case my ipadres is: "192.168.1.71" and my API key / token is "Gdw34^%FHYDe". 
+In you're case this would be different.
 
 In case you want to the web content implemented in another system you can set you're own style with the following commands:
 &size=XXXX$text=XXX&background=XXX
-- Where size is the text size
+- Where size is the text size 
 - Text is the text color
 - Background is the background color
 
@@ -45,3 +45,5 @@ http://192.168.11.60/api.php?key=Gdw34^%FHYDe&action=get_mode&dev=heatercontrol 
 Set Status of any mode:
 http://192.168.11.60/api.php?key=Gdw34^%FHYDe&action=set_mode&dev=heatercontrol&state=0  (cleaningmode / frostprotection)
 (&state=0   == ON   /// $state=1 == OFF)
+
+
