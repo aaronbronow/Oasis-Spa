@@ -6,19 +6,14 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Welcome To Luxury</title>
-  <link rel="stylesheet" href="css/logged.css">
+  <title>Luxury Inflatable SPA</title>
+  <link rel="stylesheet" href="/css/logged.css">
 <link href="https://fonts.googleapis.com/css?family=Arima+Madurai|Bungee+Inline|Bungee+Outline|Bungee+Shade|Rakkas|Rasa|Shrikhand|Yatra+One|Space+Mono" rel="stylesheet">
 </head>
 <body>
-<script type="text/javascript" language="JavaScript">
-setTimeout(function () {    
-    window.location.href = '/index.php'; 
-},180000); 
-</script>
   <style>
  html {  
-  background: url("images/bg2.jpg") no-repeat center center fixed; 
+  background: url("/images/bg2.jpg") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -27,18 +22,18 @@ setTimeout(function () {
 </style>
   <section class="about">
     <p class="about-links">
-      <a href="./index.php" target="_parent">Main Page</a>
-	  <a href="./tablet" target="_parent">Mobile page</a>
+      <a href="/index.php" target="_parent">Main Page</a>
+	  <a href="/tablet" target="_parent">Mobile page</a>
 	  <?php 
 	  if($this_user['rank'] >= "2") {
 	  ?>
-      <a href="./index.php?p=SCHEDULE.main" target="_parent">Scheduling</a>
-      <a href="./index.php?p=CONF.main" target="_parent">settings</a>
+      <a href="/index.php?p=SCHEDULE.main" target="_parent">Scheduling</a>
+      <a href="/index.php?p=CONF.main" target="_parent">settings</a>
 	  <?php
 	  } 
 	  ?>
-	  <a href="./index.php?p=info.main" target="_parent">Info</a>
-      <a href="./index.php?p=logout" target="_parent">Logout</a>
+	  <a href="/index.php?p=info.main" target="_parent">Info</a>
+      <a href="/index.php?p=logout" target="_parent">Logout</a>
 
 	  </p>
    </section>
@@ -52,7 +47,8 @@ setTimeout(function () {
 	  <!--- include from here --->
 	  
 <?php
-	Include("include.php");
+	Include("../include.php");
+	include("manual.htm");
 ?>
 	  
 	  <!-- End includes --->

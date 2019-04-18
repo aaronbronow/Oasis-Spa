@@ -15,10 +15,10 @@ Created at 24-12-2014 at 11:17
 
 
 /** Mysql_ Server Data**/
-$mysql_server		= "localhost";  /// mysql server bijna altijd localhost
-$mysql_user			= "root";  /// De mysql username
+$mysql_server		= "localhost";  /// mysql server running on localhost
+$mysql_user			= "root";  /// the mysql username
 $mysql_pass			= "raspberry";  /// mysql password
-$mysql_db			= "controller"; /// Welke database ?
+$mysql_db			= "controller"; /// Which database
 
 
 

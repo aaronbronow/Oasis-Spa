@@ -27,6 +27,7 @@ footer, header, hgroup, menu, nav, section {
 
 body {
   line-height: 1;
+
 }
 
 
@@ -44,7 +45,7 @@ table {
     -moz-border-radius: 50%; 
     -webkit-border-radius: 50%; 
     border-radius: 50%;
-    background: #606060 ;
+#    background: #606060 ;
 }
 
 .inner-circle {
@@ -53,7 +54,7 @@ table {
     -moz-border-radius: 50%; 
     -webkit-border-radius: 50%; 
     border-radius: 50%;
-    background: #606060;
+#    background: #606060;
 }
 
 
@@ -65,12 +66,12 @@ table {
       float: none;	  
 	  font-family: Verdana;
       font-size: 48px;
-      color: FFFFFF;
+      color: #A8C8B7;
       line-height: 20px;
       text-align: center;	
       border-radius: 50%;
-      border: 4px solid #0ca3d2;
-      background: #585858; 	  
+      border: 4px solid #87B4CB;
+      background: #797EB0; 	  
 }
 
 .other-circle a {
@@ -103,7 +104,14 @@ table {
 body {
   font: 13px/20px 'Lucida Grande', Tahoma, Verdana, sans-serif;
   color: #404040;
-  background: #282828;
+  background-color: #FFFFF;
+  background: url("../images/tabletbg.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.9) 100%), url(../images/tabletbg.jpg);
+
 }
 
 .container {
