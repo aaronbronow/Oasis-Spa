@@ -11,15 +11,15 @@ Created at 24-12-2014 at 11:17
 //  http://nl2.php.net/manual/en/errorfunc.configuration.php
 
 
-//ini_set("display_errors","0");   /// don't show mysql errors
+ini_set("display_errors","1");   /// don't show mysql errors
 
 ini_set('error_reporting',E_ALL);
 
 
 /** Mysql_ Server Data**/
 $mysql_server		= "localhost";  /// mysql server running on localhost
-$mysql_user			= "root";  /// the mysql username
-$mysql_pass			= "$DB_PASSWORD";  /// mysql password
+$mysql_user			= "oasis";  /// the mysql username
+$mysql_pass			= "raspberry";  /// mysql password
 $mysql_db			= "controller"; /// Which database
 
 
