@@ -14,10 +14,7 @@ RUN echo "debconf debconf/frontend select $DEBIAN_FRONTEND" | debconf-set-select
 
 RUN apt-get -yq update
 RUN apt-get -yq --no-install-recommends install curl vim git-core build-essential npm apache2 mysql-server phpmyadmin 
-
-# git clone git://git.drogon.net/wiringPi
-# cd wiringPi
-# ./build
+RUN apt-get -yq --no-install-recommends install wiringpi
 
 RUN chown :www-data /var/www/html
 WORKDIR /var/www/html
